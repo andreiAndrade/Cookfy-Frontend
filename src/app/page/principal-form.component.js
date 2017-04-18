@@ -6,16 +6,16 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 var core_1 = require("@angular/core");
-var AppComponent = (function () {
-    function AppComponent() {
+var PrincipalFormComponent = (function () {
+    function PrincipalFormComponent() {
     }
-    return AppComponent;
+    return PrincipalFormComponent;
 }());
-AppComponent = __decorate([
+PrincipalFormComponent = __decorate([
     core_1.Component({
-        selector: 'sistema-solicitacao',
-        templateUrl: './app.component.html',
+        selector: 'principal-form',
+        templateUrl: './principal-form.component.html',
     })
-], AppComponent);
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+], PrincipalFormComponent);
+exports.PrincipalFormComponent = PrincipalFormComponent;
+//# sourceMappingURL=principal-form.component.js.map

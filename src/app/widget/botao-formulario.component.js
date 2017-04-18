@@ -6,16 +6,16 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 var core_1 = require("@angular/core");
-var AppComponent = (function () {
-    function AppComponent() {
+var BotaoFormularioComponent = (function () {
+    function BotaoFormularioComponent() {
     }
-    return AppComponent;
+    return BotaoFormularioComponent;
 }());
-AppComponent = __decorate([
+BotaoFormularioComponent = __decorate([
     core_1.Component({
-        selector: 'sistema-solicitacao',
-        templateUrl: './app.component.html',
+        selector: 'botao-formulario',
+        templateUrl: './botao-formulario.component.html',
     })
-], AppComponent);
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+], BotaoFormularioComponent);
+exports.BotaoFormularioComponent = BotaoFormularioComponent;
+//# sourceMappingURL=botao-formulario.component.js.map

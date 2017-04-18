@@ -6,16 +6,17 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 var core_1 = require("@angular/core");
-var ConsultaSolicitacaoFormComponent = (function () {
-    function ConsultaSolicitacaoFormComponent() {
+var solicitacao_mock_1 = require("../mock/solicitacao.mock");
+var SolicitacaoService = (function () {
+    function SolicitacaoService() {
     }
-    return ConsultaSolicitacaoFormComponent;
+    SolicitacaoService.prototype.getSolicitacoes = function () {
+        return Promise.resolve(solicitacao_mock_1.SOLICITACOES);
+    };
+    return SolicitacaoService;
 }());
-ConsultaSolicitacaoFormComponent = __decorate([
-    core_1.Component({
-        selector: 'consulta-solicitacao-form',
-        templateUrl: './consulta-solicitacao-form.component.html',
-    })
-], ConsultaSolicitacaoFormComponent);
-exports.ConsultaSolicitacaoFormComponent = ConsultaSolicitacaoFormComponent;
-//# sourceMappingURL=consulta-solicitacao-form.component.js.map
+SolicitacaoService = __decorate([
+    core_1.Injectable()
+], SolicitacaoService);
+exports.SolicitacaoService = SolicitacaoService;
+//# sourceMappingURL=solicitacao.service.js.map
