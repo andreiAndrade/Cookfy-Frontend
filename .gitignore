@@ -26,8 +26,8 @@ fabric.properties
 
 #Angular
 system-config.js*
-app/**/*.js
-app/**/*.map
+src/app/**/*.js
+src/app/**/*.map
 node_modules
 jspm_packages
 bower_components
