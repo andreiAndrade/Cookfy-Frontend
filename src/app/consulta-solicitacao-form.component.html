@@ -1,0 +1,80 @@
+<div class="col-lg-offset-2 col-lg-8" style="background-color: rgba(221, 221, 221, 0.39); padding-bottom: 2%; margin-top: 7%; border-radius: 1%; box-shadow: 2px 8px 31px grey; margin-bottom: 5%">
+  <form class="form-horizontal">
+    <div class="col-lg-10 col-lg-offset-1">
+      <div style="margin-top: 10%">
+        <legend>Consulta</legend>
+      </div>
+      <div>
+        <label class="control-label" for="tipoSolicitacao">Tipo de Solicitação</label>
+        <select class="form-control" id="tipoSolicitacao" style="width: 50%">
+          <option disabled value="">Tipo de Solicitação</option>
+          <option value="pc">Prova de Certificação</option>
+          <option value="ae">Aproveitamento de Estudos</option>
+        </select>
+      </div>
+      <div>
+        <label class="control-label" for="curso">Curso</label>
+        <select class="form-control" id="curso" style="width: 50%">
+          <option disabled value="">Curso</option>
+          <option value="ads">Análise e Desenvolvimento de Sistemas</option>
+          <option value="gdl">Gestão Desportiva e Lazer</option>
+          <option value="ei">Eletrônica Industrial</option>
+        </select>
+      </div>
+      <div class="col-lg-4 col-lg-offset-4" style="margin-top: 5%;">
+        <button class="btn btn-primary col-lg-5 pull-left">Consultar</button>
+        <button class="btn btn-danger col-lg-5 pull-right">Voltar</button>
+      </div>
+      <div style="margin-top: 15%">
+        <legend>Resultado</legend>
+      </div>
+      <div>
+        <table class="table table-striped table-hover ">
+          <thead>
+          <tr>
+            <th>#</th>
+            <th>Solicitante</th>
+            <th>Tipo Solicitação</th>
+            <th>Curso</th>
+            <th>Disciplina</th>
+            <th>Status</th>
+            <th>Visualizar</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td>1</td>
+            <td>10070128</td>
+            <td>Aproveitamento de Estudos</td>
+            <td>Análise e Desenvolvimento de Sistemas</td>
+            <td>Desenvolvimento 2</td>
+            <td class="warning">Pendente</td>
+            <td><a href="/detalhe-solicitacao.html">Visualizar</a></td>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>10070128</td>
+            <td>Prova de Certificação</td>
+            <td>Análise e Desenvolvimento de Sistemas</td>
+            <td>Interação Humana Computador</td>
+            <td class="warning">Pendente</td>
+            <td><a href="/detalhe-solicitacao.html">Visualizar</a></td>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>10070128</td>
+            <td>Aproveitamento de Estudos</td>
+            <td>Análise e Desenvolvimento de Sistemas</td>
+            <td>Desenvolvimento 1</td>
+            <td class="danger">Indeferido</td>
+            <td><a href="/detalhe-solicitacao.html">Visualizar</a></td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <div style="margin-top: 10%">
+        <legend>Observações</legend>
+      </div>
+    </div>
+  </form>
+</div>

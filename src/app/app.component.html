@@ -1,0 +1,16 @@
+<div *ngIf="logado">
+  <menu-principal></menu-principal>
+  <div class="col-lg-offset-2 col-lg-8 meu-container">
+    <cadastro-area-dominio-form *ngIf="viewAtual == views.CadastroAreaDominio"></cadastro-area-dominio-form>
+    <cadastro-curso-form *ngIf="viewAtual == views.CadastroCurso"></cadastro-curso-form>
+    <cadastro-disciplina-form *ngIf="viewAtual == views.CadastroDisciplina"></cadastro-disciplina-form>
+    <cadastro-usuario-form *ngIf="viewAtual == views.CadastroUsuario"></cadastro-usuario-form>
+    <consulta-solicitacao-form *ngIf="viewAtual == views.ConsultaSolicitacao"></consulta-solicitacao-form>
+    <detalhe-solicitacao-form *ngIf="viewAtual == views.DetalheSolicitacao"></detalhe-solicitacao-form>
+    <solicitacao-form *ngIf="viewAtual == views.Solicitacao"></solicitacao-form>
+  </div>
+</div>
+<div class="col-lg-offset-4 col-lg-4 meu-container" *ngIf="!logado">
+  <cadastro-form *ngIf="viewAtual == views.Cadastro"></cadastro-form>
+  <login-form *ngIf="viewAtual == views.Login"></login-form>
+</div>

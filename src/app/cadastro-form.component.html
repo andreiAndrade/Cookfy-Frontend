@@ -1,0 +1,50 @@
+<h2 class="text-center" style="margin-bottom: 8%;">Sistema de Solicitação</h2>
+<form class="form-horizontal">
+  <div class="col-lg-10 col-lg-offset-1">
+    <legend>Cadastro</legend>
+  </div>
+  <div class="col-lg-10 col-lg-offset-1">
+    <label class="control-label" for="matricula">Matrícula</label>
+    <input class="form-control" id="matricula" type="text" placeholder="Matrícula"/>
+  </div>
+  <div class="col-lg-10 col-lg-offset-1">
+    <label class="control-label" for="cargo">Cargo</label>
+    <select class="form-control" id="cargo">
+      <option disabled value="">Cargo</option>
+      <option value="pro">Professor</option>
+      <option value="cre">Coordenação de Registros Escolares</option>
+      <option value="out">Outros</option>
+    </select>
+    <div class="checkbox">
+      <label>
+        <input type="checkbox"> Coordenador
+      </label>
+    </div>
+  </div>
+  <div class="col-lg-10 col-lg-offset-1">
+    <label class="control-label" for="curso">Curso</label>
+    <select class="form-control" id="curso">
+      <option disabled value="">Curso</option>
+      <option value="ads">Análise e Desenvolvimento de Sistemas</option>
+      <option value="gdl">Gestão Desportiva e Lazer</option>
+      <option value="ei">Eletrônica Industrial</option>
+    </select>
+  </div>
+  <div class="col-lg-10 col-lg-offset-1">
+    <label for="email" class="control-label">Email</label>
+    <input type="text" class="form-control" id="email" placeholder="Email">
+  </div>
+  <div class="col-lg-10 col-lg-offset-1">
+    <label for="senha" class="control-label">Senha</label>
+    <input type="text" class="form-control" id="senha" placeholder="Senha">
+  </div>
+  <div class="col-lg-10 col-lg-offset-1">
+    <label for="confirmarSenha" class="control-label">Confirmar Senha</label>
+    <input type="text" class="form-control" id="confirmarSenha" placeholder="Confirmar Senha">
+  </div>
+  <div class="col-lg-8 col-lg-offset-2" style="margin-top: 8%;">
+    <button class="btn btn-primary col-lg-5 pull-left">Cadastrar</button>
+    <button class="btn btn-danger col-lg-5 pull-right">Voltar</button>
+  </div>
+
+</form>

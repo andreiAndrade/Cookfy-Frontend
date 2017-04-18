@@ -1,0 +1,53 @@
+<div class="col-lg-offset-2 col-lg-8" style="background-color: rgba(221, 221, 221, 0.39); padding-bottom: 2%; margin-top: 7%; border-radius: 1%; box-shadow: 2px 8px 31px grey; margin-bottom: 5%">
+  <!--            <h2 class="text-center" style="margin-bottom: 8%;">Sistema de Solicitação</h2>-->
+  <form class="form-horizontal">
+    <div class="col-lg-10 col-lg-offset-1">
+      <div style="margin-top: 10%">
+        <legend>Cadastro de Usuário</legend>
+      </div>
+      <div>
+        <label class="control-label" for="matricula">Matrícula</label>
+        <input class="form-control" id="matricula" type="text" placeholder="Matrícula" style="width:50%"/>
+      </div>
+      <div>
+        <label class="control-label" for="cargo">Cargo</label>
+        <select class="form-control" id="cargo" style="width:50%">
+          <option disabled value="">Cargo</option>
+          <option value="pro">Professor</option>
+          <option value="cre">Coordenação de Registros Escolares</option>
+          <option value="out">Outros</option>
+        </select>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox"> Coordenador
+          </label>
+        </div>
+      </div>
+      <div>
+        <label class="control-label" for="curso">Curso</label>
+        <select class="form-control" id="curso" style="width:50%">
+          <option disabled value="">Curso</option>
+          <option value="ads">Análise e Desenvolvimento de Sistemas</option>
+          <option value="gdl">Gestão Desportiva e Lazer</option>
+          <option value="ei">Eletrônica Industrial</option>
+        </select>
+      </div>
+      <div>
+        <label for="email" class="control-label">Email</label>
+        <input type="text" class="form-control" id="email" placeholder="Email" style="width:50%">
+      </div>
+      <div>
+        <label for="senha" class="control-label">Senha</label>
+        <input type="text" class="form-control" id="senha" placeholder="Senha" style="width:50%">
+      </div>
+      <div>
+        <label for="confirmarSenha" class="control-label">Confirmar Senha</label>
+        <input type="text" class="form-control" id="confirmarSenha" placeholder="Confirmar Senha" style="width:50%">
+      </div>
+      <div class="col-lg-4 col-lg-offset-4" style="margin-top: 5%;">
+        <button class="btn btn-primary col-lg-5 pull-left">Cadastrar</button>
+        <button class="btn btn-danger col-lg-5 pull-right">Voltar</button>
+      </div>
+    </div>
+  </form>
+</div>
