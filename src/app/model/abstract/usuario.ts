@@ -1,4 +1,4 @@
-import {TipoUsuario} from '../enum/tipo-usuario';
+import {TipoUsuario} from '../tipo-usuario';
 import {AbstractModel} from './abstract-model';
 
 export abstract class Usuario extends AbstractModel {

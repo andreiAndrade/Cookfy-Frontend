@@ -1,8 +1,0 @@
-export enum TipoStatus {
-  ABERTO,
-  RECUSADA,
-  AVALIACAO,
-  PENDENTE_PROVA,
-  APROVADO,
-  FINALIZADO
-}

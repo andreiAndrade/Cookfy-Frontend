@@ -1,9 +1,9 @@
 import {Solicitacao} from '../model/solicitacao';
 import {DISCIPLINAS} from './disciplina.mock';
-import {TipoStatus} from '../model/enum/tipo-status';
-import {TipoSolicitacao} from '../model/enum/tipo-solicitacao';
+import {TipoStatus} from '../model/tipo-status';
 import {ALUNOS} from './aluno.mock';
 import {PROFESSORES} from './professor.mock';
+import {TipoSolicitacao} from '../model/tipo-solicitacao';
 
 export const SOLICITACOES: Solicitacao[] = [
   {
@@ -13,7 +13,7 @@ export const SOLICITACOES: Solicitacao[] = [
     disciplina: DISCIPLINAS[0],
     motivoSolicitacao: '',
     status: TipoStatus.ABERTO,
-    tipoSolicitacao: TipoSolicitacao.APROVEITAMENTO,
+    tipoSolicitacao: TipoSolicitacao.PROVA,
     solicitante: ALUNOS[0],
     responsavelAtualizacao: ALUNOS[0]
   },
@@ -24,7 +24,7 @@ export const SOLICITACOES: Solicitacao[] = [
     disciplina: DISCIPLINAS[2],
     motivoSolicitacao: '',
     status: TipoStatus.AVALIACAO,
-    tipoSolicitacao: TipoSolicitacao.PROVA,
+    tipoSolicitacao: TipoSolicitacao.APROVEITAMENTO,
     solicitante: ALUNOS[2],
     responsavelAtualizacao: PROFESSORES[0]
   },

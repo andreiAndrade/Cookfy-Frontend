@@ -1,5 +1,5 @@
 import {Aluno} from "../model/aluno";
-import {TipoUsuario} from "../model/enum/tipo-usuario";
+import {TipoUsuario} from "../model/tipo-usuario";
 import {CURSOS} from "./curso.mock";
 
 export const ALUNOS: Aluno[] = [

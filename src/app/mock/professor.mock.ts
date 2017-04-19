@@ -1,5 +1,5 @@
 import {Professor} from '../model/professor';
-import {TipoUsuario} from '../model/enum/tipo-usuario';
+import {TipoUsuario} from '../model/tipo-usuario';
 import {AREAS_DOMINIO} from './area-dominio.mock';
 
 export const PROFESSORES: Professor[] = [

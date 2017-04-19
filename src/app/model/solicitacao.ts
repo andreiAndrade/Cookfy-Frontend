@@ -1,7 +1,7 @@
 import {Usuario} from './abstract/usuario';
-import {TipoSolicitacao} from './enum/tipo-solicitacao';
+import {TipoSolicitacao} from './tipo-solicitacao';
 import {Disciplina} from './disciplina';
-import {TipoStatus} from './enum/tipo-status';
+import {TipoStatus} from './tipo-status';
 import {AbstractModel} from './abstract/abstract-model';
 import {Aluno} from './aluno';
 
