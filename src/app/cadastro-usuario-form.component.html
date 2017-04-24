@@ -1,29 +1,29 @@
-<form class="form-horizontal">
+<form class="form-horizontal" #cadastroUsuarioForm>
   <div class="col-lg-10 col-lg-offset-1">
     <div style="margin-top: 10%">
       <legend>Cadastro de Usuário</legend>
     </div>
     <div>
       <label class="control-label" for="matricula">Matrícula</label>
-      <input class="form-control" id="matricula" type="text" placeholder="Matrícula" style="width:50%"/>
+      <input type="text" id="matricula" name="matricula" class="form-control" placeholder="Matrícula" style="width:50%"
+             required minlength="8" maxlength="9" pattern="[0-9]*" #matricula [value]="novoUsuario.matricula"/>
     </div>
     <div>
-      <label class="control-label" for="cargo">Cargo</label>
-      <select class="form-control" id="cargo" style="width:50%">
-        <option disabled value="">Cargo</option>
-        <option value="pro">Professor</option>
-        <option value="cre">Coordenação de Registros Escolares</option>
-        <option value="out">Outros</option>
+      <label class="control-label" for="funcao">Função</label>
+      <select class="form-control" id="funcao" style="width:50%" (change)="onChangeTipoUsuario($event.target.value)"
+              [value]="novoUsuario.tipoUsuario">
+        <option disabled value="">Função</option>
+        <option *ngFor="let tu of tiposUsuario" [value]="tu">{{tu.valor}}</option>
       </select>
-      <div class="checkbox">
-        <label>
-          <input type="checkbox"> Coordenador
-        </label>
-      </div>
     </div>
-    <div>
+    <div *ngIf="renderCoordenador" class="checkbox">
+      <label>
+        <input type="checkbox" [value]="isCoordenador" (change)="onChangeCoordenador()"> Coordenador
+      </label>
+    </div>
+    <div *ngIf="renderCurso">
       <label class="control-label" for="curso">Curso</label>
-      <select class="form-control" id="curso" style="width:50%">
+      <select class="form-control" id="curso" style="width:50%" [value]="novoUsuario.curso">
         <option disabled value="">Curso</option>
         <option value="ads">Análise e Desenvolvimento de Sistemas</option>
         <option value="gdl">Gestão Desportiva e Lazer</option>
@@ -31,19 +31,22 @@
       </select>
     </div>
     <div>
-      <label for="email" class="control-label">Email</label>
-      <input type="text" class="form-control" id="email" placeholder="Email" style="width:50%">
+      <label for="email" class="control-label">Email Institucional</label>
+      <input type="email" id="email" name="email" class="form-control" placeholder="Email Institucional" style="width:50%"
+             [value]="novoUsuario.email" required [pattern]="emailPattern"/>
     </div>
     <div>
       <label for="senha" class="control-label">Senha</label>
-      <input type="text" class="form-control" id="senha" placeholder="Senha" style="width:50%">
+      <input type="password" id="senha" name="senha" class="form-control" placeholder="Senha" style="width:50%"
+             [value]="novoUsuario.senha" required minlength="6"/>
     </div>
     <div>
       <label for="confirmarSenha" class="control-label">Confirmar Senha</label>
-      <input type="text" class="form-control" id="confirmarSenha" placeholder="Confirmar Senha" style="width:50%">
+      <input type="password" id="confirmarSenha" name="confirmarSenha" class="form-control" placeholder="Confirmar Senha"
+             [value]="novoUsuario.confirmaSenha" style="width:50%"/>
     </div>
-    <div class="col-lg-4 col-lg-offset-4" style="margin-top: 5%;">
-      <button class="btn btn-primary col-lg-5 pull-left">Cadastrar</button>
+    <div class="col-lg-6 col-lg-offset-3" style="margin-top: 5%;">
+      <button class="btn btn-primary col-lg-5 pull-left" [disabled]="true">Cadastrar</button>
       <button class="btn btn-danger col-lg-5 pull-right">Voltar</button>
     </div>
   </div>

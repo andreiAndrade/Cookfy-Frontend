@@ -1,4 +1,5 @@
 import {AreaDominio} from '../model/area-dominio';
+import {USUARIO} from "./usuario.mock";
 
 export const AREAS_DOMINIO: AreaDominio[] = [
   {
@@ -7,6 +8,8 @@ export const AREAS_DOMINIO: AreaDominio[] = [
     descricao: '',
     dataCriacao: new Date(),
     dataAtualizacao: new Date(),
+    usuarioAtualizacao: USUARIO,
+    usuarioCriacao: USUARIO
   },
   {
     id: 1,
@@ -14,6 +17,8 @@ export const AREAS_DOMINIO: AreaDominio[] = [
     descricao: '',
     dataCriacao: new Date(),
     dataAtualizacao: new Date(),
+    usuarioAtualizacao: USUARIO,
+    usuarioCriacao: USUARIO
   },
   {
     id: 2,
@@ -21,6 +26,8 @@ export const AREAS_DOMINIO: AreaDominio[] = [
     descricao: '',
     dataCriacao: new Date(),
     dataAtualizacao: new Date(),
+    usuarioAtualizacao: USUARIO,
+    usuarioCriacao: USUARIO
   },
   {
     id: 3,
@@ -28,6 +35,8 @@ export const AREAS_DOMINIO: AreaDominio[] = [
     descricao: '',
     dataCriacao: new Date(),
     dataAtualizacao: new Date(),
+    usuarioAtualizacao: USUARIO,
+    usuarioCriacao: USUARIO
   },
   {
     id: 4,
@@ -35,6 +44,8 @@ export const AREAS_DOMINIO: AreaDominio[] = [
     descricao: '',
     dataCriacao: new Date(),
     dataAtualizacao: new Date(),
+    usuarioAtualizacao: USUARIO,
+    usuarioCriacao: USUARIO
   },
   {
     id: 5,
@@ -42,5 +53,7 @@ export const AREAS_DOMINIO: AreaDominio[] = [
     descricao: '',
     dataCriacao: new Date(),
     dataAtualizacao: new Date(),
+    usuarioAtualizacao: USUARIO,
+    usuarioCriacao: USUARIO
   }
 ];

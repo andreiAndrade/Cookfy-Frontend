@@ -1,8 +1,8 @@
-import {Disciplina} from './disciplina';
-import {Professor} from './professor';
 import {DefaultModel} from './abstract/default-model';
+import {CursoDisciplina} from './curso-disciplina';
+import {Usuario} from './usuario';
 
 export class Curso extends DefaultModel {
-  coordenador: Professor;
-  disciplinas: Disciplina[];
+  coordenador: Usuario;
+  disciplinas: CursoDisciplina[];
 }

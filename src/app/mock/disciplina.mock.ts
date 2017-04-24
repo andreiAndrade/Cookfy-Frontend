@@ -1,5 +1,6 @@
 import {Disciplina} from '../model/disciplina';
 import {AREAS_DOMINIO} from './area-dominio.mock';
+import {USUARIO} from "./usuario.mock";
 
 export const DISCIPLINAS: Disciplina[] = [
   {
@@ -9,6 +10,8 @@ export const DISCIPLINAS: Disciplina[] = [
     dataAtualizacao: new Date(),
     dataCriacao: new Date(),
     areaDominio: AREAS_DOMINIO[0],
+    usuarioAtualizacao: USUARIO,
+    usuarioCriacao: USUARIO
   },
   {
     id: 1,
@@ -17,6 +20,8 @@ export const DISCIPLINAS: Disciplina[] = [
     dataAtualizacao: new Date(),
     dataCriacao: new Date(),
     areaDominio: AREAS_DOMINIO[1],
+    usuarioAtualizacao: USUARIO,
+    usuarioCriacao: USUARIO
   },
   {
     id: 2,
@@ -25,6 +30,8 @@ export const DISCIPLINAS: Disciplina[] = [
     dataAtualizacao: new Date(),
     dataCriacao: new Date(),
     areaDominio: AREAS_DOMINIO[4],
+    usuarioAtualizacao: USUARIO,
+    usuarioCriacao: USUARIO
   },
   {
     id: 3,
@@ -33,5 +40,7 @@ export const DISCIPLINAS: Disciplina[] = [
     dataAtualizacao: new Date(),
     dataCriacao: new Date(),
     areaDominio: AREAS_DOMINIO[0],
+    usuarioAtualizacao: USUARIO,
+    usuarioCriacao: USUARIO
   },
 ];

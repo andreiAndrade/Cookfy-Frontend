@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {TipoSolicitacao} from './model/tipo-solicitacao';
 import {DisciplinaService} from './service/disciplina.service';
-import {Disciplina} from "./model/disciplina";
+import {Disciplina} from './model/disciplina';
 
 @Component({
   selector: 'solicitacao-form',

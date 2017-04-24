@@ -1,9 +1,8 @@
 import {Solicitacao} from '../model/solicitacao';
 import {DISCIPLINAS} from './disciplina.mock';
-import {TipoStatus} from '../model/tipo-status';
-import {ALUNOS} from './aluno.mock';
-import {PROFESSORES} from './professor.mock';
+import {StatusSolicitacao} from '../model/status-solicitacao';
 import {TipoSolicitacao} from '../model/tipo-solicitacao';
+import {USUARIO} from "./usuario.mock";
 
 export const SOLICITACOES: Solicitacao[] = [
   {
@@ -12,10 +11,10 @@ export const SOLICITACOES: Solicitacao[] = [
     dataCriacao: new Date(),
     disciplina: DISCIPLINAS[0],
     motivoSolicitacao: '',
-    status: TipoStatus.ABERTO,
+    status: StatusSolicitacao.ABERTO,
     tipoSolicitacao: TipoSolicitacao.PROVA,
-    solicitante: ALUNOS[0],
-    responsavelAtualizacao: ALUNOS[0]
+    usuarioAtualizacao: USUARIO,
+    usuarioCriacao: USUARIO
   },
   {
     id: 1,
@@ -23,10 +22,10 @@ export const SOLICITACOES: Solicitacao[] = [
     dataCriacao: new Date(),
     disciplina: DISCIPLINAS[2],
     motivoSolicitacao: '',
-    status: TipoStatus.AVALIACAO,
+    status: StatusSolicitacao.AVALIACAO,
     tipoSolicitacao: TipoSolicitacao.APROVEITAMENTO,
-    solicitante: ALUNOS[2],
-    responsavelAtualizacao: PROFESSORES[0]
+    usuarioAtualizacao: USUARIO,
+    usuarioCriacao: USUARIO
   },
   {
     id: 2,
@@ -34,9 +33,9 @@ export const SOLICITACOES: Solicitacao[] = [
     dataCriacao: new Date(),
     disciplina: DISCIPLINAS[1],
     motivoSolicitacao: '',
-    status: TipoStatus.ABERTO,
+    status: StatusSolicitacao.ABERTO,
     tipoSolicitacao: TipoSolicitacao.APROVEITAMENTO,
-    solicitante: ALUNOS[1],
-    responsavelAtualizacao: ALUNOS[1]
+    usuarioAtualizacao: USUARIO,
+    usuarioCriacao: USUARIO
   },
 ];
