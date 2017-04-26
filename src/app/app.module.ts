@@ -1,9 +1,10 @@
-import { NgModule }      from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule }   from '@angular/router';
+import {NgModule}      from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {RouterModule}   from '@angular/router';
+import {FormsModule} from '@angular/forms';
 
-import { AppComponent }  from './app.component';
-import { LoginFormComponent }  from './login-form.component';
+import {AppComponent}  from './app.component';
+import {LoginFormComponent}  from './login-form.component';
 import {CadastroAreaDominioFormComponent} from './cadastro-area-dominio-form.component';
 import {CadastroCursoFormComponent} from './cadastro-curso-form.component';
 import {CadastroDisciplinaFormComponent} from './cadastro-disciplina-form.component';
@@ -16,8 +17,9 @@ import {PrincipalFormComponent} from './principal-form.component';
 import {MenuPrincipalComponent} from './menu-principal.component';
 
 @NgModule({
-  imports:      [
+  imports: [
     BrowserModule,
+    FormsModule,
     RouterModule.forRoot([
       {
         path: 'login',
@@ -76,8 +78,9 @@ import {MenuPrincipalComponent} from './menu-principal.component';
     MenuPrincipalComponent,
     PrincipalFormComponent
   ],
-  bootstrap:    [
+  bootstrap: [
     AppComponent
   ]
 })
-export class AppModule { }
+export class AppModule {
+}

@@ -1,49 +1,61 @@
-<form class="form-horizontal" #cadastroUsuarioForm>
+<form class="form-horizontal" #cadastroUsuarioForm="ngForm">
   <div class="col-lg-10 col-lg-offset-1">
     <div style="margin-top: 10%">
       <legend>Cadastro de Usuário</legend>
     </div>
     <div>
+      <label class="control-label" for="nome">Nome</label>
+      <input type="text" id="nome" name="nome" class="form-control" style="width:50%"
+             required #matricula="ngModel" [(ngModel)]="novoUsuario.nome"/>
+      <div [hidden]="nome.valid || nome.pristine"
+           class="alert alert-danger">
+        Name is required
+      </div>
+    </div>
+    <div>
       <label class="control-label" for="matricula">Matrícula</label>
-      <input type="text" id="matricula" name="matricula" class="form-control" placeholder="Matrícula" style="width:50%"
-             required minlength="8" maxlength="9" pattern="[0-9]*" #matricula [value]="novoUsuario.matricula"/>
+      <input type="text" id="matricula" name="matricula" class="form-control" style="width:50%"
+             required minlength="8" maxlength="9" pattern="[0-9]*" #matricula="ngModel"
+             [(ngModel)]="novoUsuario.matricula"/>
     </div>
     <div>
       <label class="control-label" for="funcao">Função</label>
-      <select class="form-control" id="funcao" style="width:50%" (change)="onChangeTipoUsuario($event.target.value)"
-              [value]="novoUsuario.tipoUsuario">
-        <option disabled value="">Função</option>
-        <option *ngFor="let tu of tiposUsuario" [value]="tu">{{tu.valor}}</option>
+      <select class="form-control" id="funcao" name="funcao" style="width:50%" (change)="onChangeTipoUsuario()"
+              #tipoUsuario="ngModel" [(ngModel)]="novoUsuario.tipoUsuario">
+        <option *ngFor="let tu of tiposUsuario" [ngValue]="tu">{{tu.valor}}</option>
       </select>
     </div>
     <div *ngIf="renderCoordenador" class="checkbox">
       <label>
-        <input type="checkbox" [value]="isCoordenador" (change)="onChangeCoordenador()"> Coordenador
+        <input type="checkbox" id="isCoordenador" name="isCoordenador" (change)="onChangeCoordenador()"
+               #isCoordenador="ngModel"
+               [(ngModel)]="novoUsuario.isCoordenador"> Coordenador
       </label>
+    </div>
+    <div *ngIf="renderCursos" class="checkbox">
+      texto
     </div>
     <div *ngIf="renderCurso">
       <label class="control-label" for="curso">Curso</label>
-      <select class="form-control" id="curso" style="width:50%" [value]="novoUsuario.curso">
-        <option disabled value="">Curso</option>
-        <option value="ads">Análise e Desenvolvimento de Sistemas</option>
-        <option value="gdl">Gestão Desportiva e Lazer</option>
-        <option value="ei">Eletrônica Industrial</option>
+      <select class="form-control" id="curso" name="curso" style="width:50%" #curso="ngModel"
+              [(ngModel)]="novoUsuario.curso">
+        <option *ngFor="let cu of cursos" [ngValue]="cu">{{cu.nome}}</option>
       </select>
     </div>
     <div>
       <label for="email" class="control-label">Email Institucional</label>
-      <input type="email" id="email" name="email" class="form-control" placeholder="Email Institucional" style="width:50%"
-             [value]="novoUsuario.email" required [pattern]="emailPattern"/>
+      <input type="email" id="email" name="email" class="form-control" style="width:50%"
+             required [pattern]="emailPattern" #email="ngModel" [(ngModel)]="novoUsuario.email"/>
     </div>
     <div>
       <label for="senha" class="control-label">Senha</label>
-      <input type="password" id="senha" name="senha" class="form-control" placeholder="Senha" style="width:50%"
-             [value]="novoUsuario.senha" required minlength="6"/>
+      <input type="password" id="senha" name="senha" class="form-control" style="width:50%"
+             required minlength="6" #senha="ngModel" [(ngModel)]="novoUsuario.senha"/>
     </div>
     <div>
       <label for="confirmarSenha" class="control-label">Confirmar Senha</label>
-      <input type="password" id="confirmarSenha" name="confirmarSenha" class="form-control" placeholder="Confirmar Senha"
-             [value]="novoUsuario.confirmaSenha" style="width:50%"/>
+      <input type="password" id="confirmarSenha" name="confirmarSenha" class="form-control"
+             style="width:50%" #confirmaSenha="ngModel" [(ngModel)]="novoUsuario.confirmaSenha"/>
     </div>
     <div class="col-lg-6 col-lg-offset-3" style="margin-top: 5%;">
       <button class="btn btn-primary col-lg-5 pull-left" [disabled]="true">Cadastrar</button>
