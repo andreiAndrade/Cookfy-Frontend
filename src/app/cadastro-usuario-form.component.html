@@ -1,65 +1,78 @@
-<form class="form-horizontal" #cadastroUsuarioForm="ngForm">
+<form class="form-horizontal" #cadastroUsuarioForm="ngForm" (ngSubmit)="onSubmit()">
   <div class="col-lg-10 col-lg-offset-1">
     <div style="margin-top: 10%">
       <legend>Cadastro de Usuário</legend>
     </div>
-    <div>
+    <div [class]="(!nome.valid && !nome.pristine && elementoEmFoco !== 'nome') ? 'has-error' : ''">
       <label class="control-label" for="nome">Nome</label>
       <input type="text" id="nome" name="nome" class="form-control" style="width:50%"
-             required #matricula="ngModel" [(ngModel)]="novoUsuario.nome"/>
-      <div [hidden]="nome.valid || nome.pristine"
-           class="alert alert-danger">
-        Name is required
-      </div>
+             required #nome="ngModel" [(ngModel)]="novoUsuario.nome" (focus)="focus('nome')" (blur)="elementoEmFoco = ''"/>
     </div>
-    <div>
+    <div [class]="(!matricula.valid && !matricula.pristine && elementoEmFoco !== 'matricula') ? 'has-error' : ''">
       <label class="control-label" for="matricula">Matrícula</label>
       <input type="text" id="matricula" name="matricula" class="form-control" style="width:50%"
              required minlength="8" maxlength="9" pattern="[0-9]*" #matricula="ngModel"
-             [(ngModel)]="novoUsuario.matricula"/>
+             [(ngModel)]="novoUsuario.matricula" (focus)="focus('matricula')" (blur)="elementoEmFoco = ''"/>
     </div>
-    <div>
+    <div [class]="(!funcao.valid && !funcao.pristine && elementoEmFoco !== 'funcao') ? 'has-error' : ''">
       <label class="control-label" for="funcao">Função</label>
       <select class="form-control" id="funcao" name="funcao" style="width:50%" (change)="onChangeTipoUsuario()"
-              #tipoUsuario="ngModel" [(ngModel)]="novoUsuario.tipoUsuario">
+              #funcao="ngModel" [(ngModel)]="novoUsuario.tipoUsuario" required (focus)="focus('funcao')" (blur)="elementoEmFoco = ''">
         <option *ngFor="let tu of tiposUsuario" [ngValue]="tu">{{tu.valor}}</option>
       </select>
     </div>
-    <div *ngIf="renderCoordenador" class="checkbox">
+    <div *ngIf="isProfessor" class="checkbox">
       <label>
         <input type="checkbox" id="isCoordenador" name="isCoordenador" (change)="onChangeCoordenador()"
-               #isCoordenador="ngModel"
-               [(ngModel)]="novoUsuario.isCoordenador"> Coordenador
+               #isCoordenador="ngModel" [(ngModel)]="novoUsuario.isCoordenador"> Coordenador
       </label>
     </div>
-    <div *ngIf="renderCursos" class="checkbox">
+    <div *ngIf="isCoordenador" class="checkbox">
       texto
     </div>
-    <div *ngIf="renderCurso">
+    <div *ngIf="isAluno" [class]="(!curso.valid && !curso.pristine && elementoEmFoco !== 'curso') ? 'has-error' : ''">
       <label class="control-label" for="curso">Curso</label>
       <select class="form-control" id="curso" name="curso" style="width:50%" #curso="ngModel"
-              [(ngModel)]="novoUsuario.curso">
+              [(ngModel)]="novoUsuario.curso" [required]="isAluno" (focus)="focus('curso')" (blur)="elementoEmFoco = ''">
         <option *ngFor="let cu of cursos" [ngValue]="cu">{{cu.nome}}</option>
       </select>
     </div>
-    <div>
+    <div *ngIf="isAluno" [class]="(!telefone.valid && !telefone.pristine && elementoEmFoco !== 'telefone') ? 'has-error' : ''">
+      <label for="telefone" class="control-label">Telefone</label>
+      <input type="telefone" id="telefone" name="email" class="form-control" style="width:50%"
+             #telefone="ngModel" [(ngModel)]="novoUsuario.telefone" [required]="isAluno" (focus)="focus('telefone')" (blur)="elementoEmFoco = ''"/>
+    </div>
+    <div *ngIf="isAluno" [class]="(!anoIngresso.valid && !anoIngresso.pristine && elementoEmFoco !== 'anoIngresso') ? 'has-error' : ''">
+      <label for="anoIngresso" class="control-label">Ano de ingresso</label>
+      <input type="text" id="anoIngresso" name="anoIngresso" class="form-control" style="width:50%"
+      #anoIngresso="ngModel" [(ngModel)]="novoUsuario.anoIngresso" [required]="isAluno" (focus)="focus('anoIngresso')" (blur)="elementoEmFoco = ''"/>
+    </div>
+    <div *ngIf="isAluno" [class]="(!semestreIngresso.valid && !semestreIngresso.pristine && elementoEmFoco !== 'semestreIngresso') ? 'has-error' : ''">
+      <label class="control-label" for="semestreIngresso">Semestre de Ingresso</label>
+      <select class="form-control" id="semestreIngresso" name="semestreIngresso" style="width:50%" #semestreIngresso="ngModel"
+              [(ngModel)]="novoUsuario.semestreIngresso" [required]="isAluno" (focus)="focus('semestreIngresso')" (blur)="elementoEmFoco = ''">
+        <option value="1">1º Semestre</option>
+        <option value="2">2º Semestre</option>
+      </select>
+    </div>
+    <div [class]="(!email.valid && !email.pristine && elementoEmFoco !== 'email') ? 'has-error' : ''">
       <label for="email" class="control-label">Email Institucional</label>
       <input type="email" id="email" name="email" class="form-control" style="width:50%"
-             required [pattern]="emailPattern" #email="ngModel" [(ngModel)]="novoUsuario.email"/>
+             #email="ngModel" [(ngModel)]="novoUsuario.email" required (focus)="focus('email')" (blur)="elementoEmFoco = ''"/>
     </div>
-    <div>
+    <div [class]="(!senha.valid && !senha.pristine && elementoEmFoco !== 'senha') ? 'has-error' : ''">
       <label for="senha" class="control-label">Senha</label>
       <input type="password" id="senha" name="senha" class="form-control" style="width:50%"
-             required minlength="6" #senha="ngModel" [(ngModel)]="novoUsuario.senha"/>
+             required minlength="6" #senha="ngModel" [(ngModel)]="novoUsuario.senha" (focus)="focus('senha')" (blur)="elementoEmFoco = ''"/>
     </div>
-    <div>
+    <div [class]="(!confirmarSenha.valid && !confirmarSenha.pristine && elementoEmFoco !== 'confirmarSenha') ? 'has-error' : ''">
       <label for="confirmarSenha" class="control-label">Confirmar Senha</label>
       <input type="password" id="confirmarSenha" name="confirmarSenha" class="form-control"
-             style="width:50%" #confirmaSenha="ngModel" [(ngModel)]="novoUsuario.confirmaSenha"/>
+             style="width:50%" #confirmarSenha="ngModel" [(ngModel)]="novoUsuario.confirmaSenha" required (focus)="focus('confirmarSenha')" (blur)="elementoEmFoco = ''"/>
     </div>
     <div class="col-lg-6 col-lg-offset-3" style="margin-top: 5%;">
-      <button class="btn btn-primary col-lg-5 pull-left" [disabled]="true">Cadastrar</button>
-      <button class="btn btn-danger col-lg-5 pull-right">Voltar</button>
+      <button type="submit" class="btn btn-primary col-lg-5 pull-left" [disabled]="!cadastroUsuarioForm.form.valid">Cadastrar</button>
+      <button type="button" (click)="irParaPrincipal()" class="btn btn-danger col-lg-5 pull-right">Cancelar</button>
     </div>
   </div>
 </form>

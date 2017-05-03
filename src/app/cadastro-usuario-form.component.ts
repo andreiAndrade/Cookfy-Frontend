@@ -3,21 +3,26 @@ import {TipoUsuario} from './model/tipo-usuario';
 import {Usuario} from './model/usuario';
 import {Curso} from './model/curso';
 import {CursoService} from './service/curso.service';
+import {UsuarioService} from "./service/usuario.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'cadastro-usuario-form',
   templateUrl: './cadastro-usuario-form.component.html',
-  providers: [CursoService]
+  providers: [CursoService, UsuarioService]
 })
 export class CadastroUsuarioFormComponent implements OnInit {
-  renderCoordenador: boolean = false;
-  renderCurso: boolean = false;
-  renderCursosCoordenador: boolean = false;
+  isAluno: boolean = false;
+  isProfessor: boolean = false;
+  isCoordenador: boolean = false;
+  elementoEmFoco: string = '';
+  inputClass: string = 'control-label';
   novoUsuario: Usuario;
   tiposUsuario: TipoUsuario[] = TipoUsuario.TIPOS_USUARIO;
   cursos: Curso[];
 
-  constructor(private cursoService: CursoService) {}
+  constructor(private cursoService: CursoService, private usuarioService: UsuarioService, private router: Router) {
+  }
 
   ngOnInit() {
     this.novoUsuario = new Usuario();
@@ -37,36 +42,37 @@ export class CadastroUsuarioFormComponent implements OnInit {
 
   onChangeCoordenador() {
     if (this.novoUsuario.isCoordenador) {
-      this.apresentaCampos(this.renderCoordenador, this.renderCurso, true);
+      this.apresentaCampos(this.isProfessor, this.isAluno, true);
     } else {
-      this.apresentaCampos(this.renderCoordenador, this.renderCurso, false);
+      this.apresentaCampos(this.isProfessor, this.isAluno, false);
     }
   }
 
-  apresentaCampos(renderCoordenador: boolean, renderCurso: boolean, renderCursosCoordenador: boolean) {
-    this.criaCampoCoordenador(renderCoordenador);
-    this.criaCampoCurso(renderCurso);
-    this.criaCampoCursosCoordenador(renderCursosCoordenador);
-  }
-  criaCampoCoordenador(renderCoordenador: boolean) {
-    this.novoUsuario.isCoordenador = renderCoordenador === this.renderCoordenador;
-    this.renderCoordenador = renderCoordenador;
+  apresentaCampos(isProfessor: boolean, isAluno: boolean, isCoordenador: boolean) {
+    this.criaCamposProfessor(isProfessor);
+    this.criaCamposAluno(isAluno);
+    this.criaCamposCoordenador(isCoordenador);
   }
 
-  criaCampoCurso(renderCurso: boolean) {
-    if (renderCurso) {
+  criaCamposProfessor(isProfessor: boolean) {
+    this.novoUsuario.isCoordenador = isProfessor === this.isProfessor;
+    this.isProfessor = isProfessor;
+  }
+
+  criaCamposAluno(isAluno: boolean) {
+    if (isAluno) {
       this.buscaCursos();
     }
-    this.novoUsuario.curso = !renderCurso ? null : this.novoUsuario.curso;
-    this.renderCurso = renderCurso;
+    this.novoUsuario.curso = !isAluno ? null : this.novoUsuario.curso;
+    this.isAluno = isAluno;
   }
 
-  criaCampoCursosCoordenador(renderCursosCoordenador: boolean) {
-    if (renderCursosCoordenador) {
+  criaCamposCoordenador(isCoordenador: boolean) {
+    if (isCoordenador) {
       this.buscaCursos();
     }
-    this.novoUsuario.cursos = !renderCursosCoordenador ? [] : this.novoUsuario.cursos;
-    this.renderCursosCoordenador = renderCursosCoordenador;
+    this.novoUsuario.cursos = !isCoordenador ? [] : this.novoUsuario.cursos;
+    this.isCoordenador = isCoordenador;
   }
 
   buscaCursos() {
@@ -78,5 +84,19 @@ export class CadastroUsuarioFormComponent implements OnInit {
   get emailPattern() {
     // return '[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}';
     return '[a-z0-9._%+-]+@restinga.ifrs.edu.br';
+  }
+
+  focus(nomeElemento: string) {
+    this.elementoEmFoco = nomeElemento;
+  }
+
+  onSubmit() {
+    if(this.usuarioService.cadastrar(this.novoUsuario)) {
+      this.irParaPrincipal();
+    }
+  }
+
+  irParaPrincipal() {
+    this.router.navigate(['/principal']);
   }
 }
