@@ -14,7 +14,6 @@ export class Usuario extends AbstractModel {
   isAdmin: boolean;
   areaDominio: AreaDominio[];
   isCoordenador: boolean;
-  cursos: Curso[];
   anoIngresso: string;
   semestreIngresso: string;
   telefone: string;
@@ -34,7 +33,6 @@ export class Usuario extends AbstractModel {
     this.isAdmin = false;
     this.areaDominio = [];
     this.isCoordenador = false;
-    this.cursos = [];
     this.anoIngresso = '';
     this.semestreIngresso = '';
     this.telefone = '';

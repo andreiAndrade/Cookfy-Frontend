@@ -71,7 +71,7 @@ export class CadastroUsuarioFormComponent implements OnInit {
     if (isCoordenador) {
       this.buscaCursos();
     }
-    this.novoUsuario.cursos = !isCoordenador ? [] : this.novoUsuario.cursos;
+    this.novoUsuario.curso = !isCoordenador ? null : this.novoUsuario.curso;
     this.isCoordenador = isCoordenador;
   }
 

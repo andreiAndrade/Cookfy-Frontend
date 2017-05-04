@@ -15,10 +15,10 @@ import {DetalheSolicitacaoFormComponent} from './detalhe-solicitacao-form.compon
 import {ConsultaSolicitacaoFormComponent} from './consulta-solicitacao-form.component';
 import {PrincipalFormComponent} from './principal-form.component';
 import {MenuPrincipalComponent} from './menu-principal.component';
-import {CursoService} from "./service/curso.service";
-import {DisciplinaService} from "./service/disciplina.service";
-import {SolicitacaoService} from "./service/solicitacao.service";
-import {UsuarioService} from "./service/usuario.service";
+import {CursoService} from './service/curso.service';
+import {DisciplinaService} from './service/disciplina.service';
+import {SolicitacaoService} from './service/solicitacao.service';
+import {UsuarioService} from './service/usuario.service';
 
 @NgModule({
   imports: [

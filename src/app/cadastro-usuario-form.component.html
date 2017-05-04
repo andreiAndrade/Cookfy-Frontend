@@ -21,16 +21,16 @@
         <option *ngFor="let tu of tiposUsuario" [ngValue]="tu">{{tu.valor}}</option>
       </select>
     </div>
+    <div *ngIf="isProfessor">
+      text
+    </div>
     <div *ngIf="isProfessor" class="checkbox">
       <label>
         <input type="checkbox" id="isCoordenador" name="isCoordenador" (change)="onChangeCoordenador()"
                #isCoordenador="ngModel" [(ngModel)]="novoUsuario.isCoordenador"> Coordenador
       </label>
     </div>
-    <div *ngIf="isCoordenador" class="checkbox">
-      texto
-    </div>
-    <div *ngIf="isAluno" [class]="(!curso.valid && !curso.pristine && elementoEmFoco !== 'curso') ? 'has-error' : ''">
+    <div *ngIf="isAluno || isCoordenador" [class]="(!curso.valid && !curso.pristine && elementoEmFoco !== 'curso') ? 'has-error' : ''">
       <label class="control-label" for="curso">Curso</label>
       <select class="form-control" id="curso" name="curso" style="width:50%" #curso="ngModel"
               [(ngModel)]="novoUsuario.curso" [required]="isAluno" (focus)="focus('curso')" (blur)="elementoEmFoco = ''">
